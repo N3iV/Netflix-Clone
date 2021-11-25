@@ -1,0 +1,45 @@
+.listItem {
+  width: 275px;
+  height: 170px;
+  background-color: #fff;
+  margin-left: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // display: none;
+    object-fit: cover;
+  }
+  .play {
+    fill: #fff;
+  }
+  .listItem-desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 2;
+    transition: 0.5s ease;
+  }
+  .active {
+    background: #000;
+    opacity: 0.8;
+  }
+  .listItem-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
