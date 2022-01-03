@@ -58,7 +58,16 @@ router.get("/find/:id", verify, async (req, res) => {
     res.status(500).json(err);
   }
 });
-//*-------GET
+//*-------GET ALL
+router.get("/", verify, async (req, res) => {
+  try {
+    const movie = await Movie.find();
+    res.status(200).json(movie.reverse());
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//*-------GET RAMDOM
 router.get("/random", verify, async (req, res) => {
   const type = req.query.type;
   let movie;
