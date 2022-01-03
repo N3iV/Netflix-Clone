@@ -1,5 +1,6 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -7,7 +8,6 @@ const Navbar = () => {
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
   };
-  console.log(isScrolled);
   return (
     <div className={isScrolled ? "navbar scroll" : "navbar"}>
       <div className="container">
@@ -25,8 +25,15 @@ const Navbar = () => {
               />
             </g>
           </svg>
-          <span> Home Page</span>
-          <span> Series</span>
+          <Link className="link" to="/">
+            <span> Home Page</span>
+          </Link>
+          <Link className="link" to="/series">
+            <span> Series</span>
+          </Link>
+          <Link className="link" to="/movies">
+            <span> Movies</span>
+          </Link>
           <span> New Popular</span>
           <span> My List</span>
         </div>

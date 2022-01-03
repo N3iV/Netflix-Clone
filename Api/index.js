@@ -18,8 +18,8 @@ mongoose
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
-app.use("/api/movie", movieRoute);
-app.use("/api/list", listRoute);
+app.use("/api/movies", movieRoute);
+app.use("/api/lists", listRoute);
 
 app.listen(8000, () => {
   console.log("backend is running");

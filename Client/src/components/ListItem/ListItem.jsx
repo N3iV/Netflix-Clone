@@ -6,21 +6,40 @@ import {
   ThumbDownOutlined,
 } from "@material-ui/icons";
 import "./listItem.scss";
-export default function ListItem({ index }) {
+import { useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(isHovered);
+  const [movie, setMovie] = useState({});
+  useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const res = await axios.get("/movies/find/" + item, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYmRiMzM1N2FiZTc2YjhlNGFmYjYyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MTE3NjEwMCwiZXhwIjoxNjQxNjA4MTAwfQ.RWt0XGICEDQrFvTZ3M7WImwn23uBUFqOqMmK-KCFxzA",
+          },
+        });
+        setMovie(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMovie();
+  }, [item]);
   return (
-    <>
+    <Link to="watch" state={{ movie: movie }}>
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src="" alt="" />
+        <img src={movie.img} alt="" />
         {isHovered && (
           <>
-            <video src="" autoPlay={true} loop />
+            <video src={movie.trailer} autoPlay={true} loop />
             <div className="itemInfo">
               <div className="icons">
                 <PlayArrow className="icon" />
@@ -29,21 +48,16 @@ export default function ListItem({ index }) {
                 <ThumbDownOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>1231231</span>
-                <span className="limit">+4</span>
-                <span>2002</span>
+                <span>{movie.duration}</span>
+                <span className="limit">+{movie.limit}</span>
+                <span>{movie.year}</span>
               </div>
-              <div className="desc">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
-                dicta corporis culpa fuga officia aut nisi ab, quae eos vero
-                veritatis omnis voluptate ex dignissimos aliquam nemo. Maxime,
-                officiis labore.
-              </div>
-              <div className="genre">Horror</div>
+              <div className="desc">{movie.desc}</div>
+              <div className="genre">{movie.genre}</div>
             </div>
           </>
         )}
       </div>
-    </>
+    </Link>
   );
 }
