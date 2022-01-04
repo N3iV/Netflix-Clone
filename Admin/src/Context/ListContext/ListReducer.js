@@ -1,41 +1,41 @@
-const MovieReducer = (state, action) => {
+const ListReducer = (state, action) => {
   switch (action.type) {
-    case "GET_MOVIES_START": {
+    case "GET_LISTS_START": {
       return {
-        movies: [],
+        lists: [],
         isFetching: true,
         error: false,
       };
     }
-    case "GET_MOVIES_SUCCESS": {
+    case "GET_LISTS_SUCCESS": {
       return {
-        movies: action.payload,
+        lists: action.payload,
         isFetching: false,
         error: false,
       };
     }
-    case "GET_MOVIES_FAILURE": {
+    case "GET_LISTS_FAILURE": {
       return {
-        movies: [],
+        lists: [],
         isFetching: false,
         error: true,
       };
     }
-    case "DELETE_MOVIES_START": {
+    case "DELETE_LISTS_START": {
       return {
         ...state,
         isFetching: true,
         error: false,
       };
     }
-    case "DELETE_MOVIES_SUCCESS": {
+    case "DELETE_LISTS_SUCCESS": {
       return {
-        movies: state.movies.filter((movie) => movie._id !== action.payload),
+        lists: state.lists.filter((list) => list._id !== action.payload),
         isFetching: false,
         error: false,
       };
     }
-    case "DELETE_MOVIES_FAILURE": {
+    case "DELETE_LISTS_FAILURE": {
       return {
         ...state,
         isFetching: false,
@@ -50,7 +50,7 @@ const MovieReducer = (state, action) => {
       };
     case "CREATE_MOVIE_SUCCESS":
       return {
-        movies: [...state.movies, action.payload],
+        lists: [...state.lists, action.payload],
         isFetching: false,
         error: false,
       };
@@ -68,7 +68,7 @@ const MovieReducer = (state, action) => {
       };
     case "UPLOAD_MOVIE_SUCCESS":
       return {
-        movies: state.movies.map(
+        lists: state.lists.map(
           (movie) => movie._id === action.payload._id && action.payload
         ),
         isFetching: false,
@@ -85,4 +85,4 @@ const MovieReducer = (state, action) => {
   }
 };
 
-export default MovieReducer;
+export default ListReducer;

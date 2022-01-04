@@ -17,6 +17,8 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/Login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./Context/AuthContext/authContext";
+import ListList from "./pages/listList/ListList";
+import List from "./pages/list/List";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -42,11 +44,17 @@ function App() {
               <Route path="/newUser">
                 <NewUser />
               </Route>
-              <Route path="/movies">
+              <Route exact path="/movies">
                 <ProductList />
               </Route>
-              <Route path="/product/:productId">
+              <Route exact path="/lists">
+                <ListList />
+              </Route>
+              <Route path="/movies/:productId">
                 <Product />
+              </Route>
+              <Route path="/lists/:listId">
+                <List />
               </Route>
               <Route path="/newproduct">
                 <NewProduct />
