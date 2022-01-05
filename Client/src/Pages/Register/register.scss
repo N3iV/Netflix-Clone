@@ -22,7 +22,7 @@
       }
 
       .loginButton {
-        background-color: var(--primary-color);
+        background-color: red;
         border: none;
         color: white;
         border-radius: 5px;
@@ -70,22 +70,18 @@
 
       input {
         flex: 9;
-        height: 90%;
-        border: 3px solid transparent;
-        outline: none;
+        height: 100%;
+        border: none;
         padding: 0 10px;
-        &:focus {
-          border: 3px solid var(--primary-color);
-        }
       }
 
       .registerButton {
         flex: 3;
         height: 100%;
-        background-color: var(--primary-color);
+        background-color: red;
         border: none;
         color: white;
-        font-size: 24px;
+        font-size: 22px;
         cursor: pointer;
       }
     }

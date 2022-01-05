@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./product.css";
 
 import { Publish } from "@material-ui/icons";
+import { useState } from "react";
 
 export default function Product() {
   const location = useLocation();

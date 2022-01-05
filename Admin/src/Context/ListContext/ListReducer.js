@@ -42,25 +42,25 @@ const ListReducer = (state, action) => {
         error: true,
       };
     }
-    case "CREATE_MOVIE_START":
+    case "CREATE_LIST_START":
       return {
         ...state,
         isFetching: true,
         error: false,
       };
-    case "CREATE_MOVIE_SUCCESS":
+    case "CREATE_LIST_SUCCESS":
       return {
         lists: [...state.lists, action.payload],
         isFetching: false,
         error: false,
       };
-    case "CREATE_MOVIE_FAILURE":
+    case "CREATE_LIST_FAILURE":
       return {
         ...state,
         isFetching: false,
         error: true,
       };
-    case "UPLOAD_MOVIE_START":
+    case "UPLOAD_LIST_START":
       return {
         ...state,
         isFetching: true,
@@ -69,7 +69,7 @@ const ListReducer = (state, action) => {
     case "UPLOAD_MOVIE_SUCCESS":
       return {
         lists: state.lists.map(
-          (movie) => movie._id === action.payload._id && action.payload
+          (list) => list._id === action.payload._id && action.payload
         ),
         isFetching: false,
         error: false,

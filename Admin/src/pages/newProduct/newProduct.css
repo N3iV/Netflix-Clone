@@ -42,3 +42,16 @@
   cursor: pointer;
   align-self: center;
 }
+
+.newListFrom {
+  display: flex;
+  justify-content: center;
+}
+.newList-btn {
+  margin-left: 550px;
+  padding: 22px 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
