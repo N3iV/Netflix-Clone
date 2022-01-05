@@ -8,7 +8,9 @@ export const loginSuccess = (user) => ({
 export const loginFailure = () => ({
   type: "LOGIN_FAILURE",
 });
-
+export const getUser = () => ({
+  type: "GET_USER",
+});
 //Logout
 
 export const logout = () => ({

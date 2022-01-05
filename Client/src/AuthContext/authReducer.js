@@ -28,6 +28,13 @@ const authReducer = (state, action) => {
         error: false,
       };
     }
+    case "GET_USER": {
+      return {
+        user: action.payload,
+        isFetching: false,
+        error: false,
+      };
+    }
     default:
       return { ...state };
   }

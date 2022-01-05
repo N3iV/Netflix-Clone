@@ -34,7 +34,7 @@ export default function Home() {
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYmRiMzM1N2FiZTc2YjhlNGFmYjYyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MTE3NjEwMCwiZXhwIjoxNjQxNjA4MTAwfQ.RWt0XGICEDQrFvTZ3M7WImwn23uBUFqOqMmK-KCFxzA",
           },
         });
-        const statsList = res.data.sort((a, b) => a._id - b._id);
+        const statsList = res.data.sort((a, b) => b._id - a._id);
         statsList.map((item) =>
           setUserStats((prev) => [
             ...prev,

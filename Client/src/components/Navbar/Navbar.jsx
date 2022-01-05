@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../AuthContext/authAction";
 import { AuthContext } from "../../AuthContext/authContext";
+
 import "./Navbar.scss";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
-
+  let user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
   };
@@ -43,10 +45,13 @@ const Navbar = () => {
         </div>
         <div className="right">
           <Search className="icon" />
-          KID
+          {user.username}
           <Notifications className="icon" />
           <img
-            src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/248277858_1228141431031706_3504583807402666292_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=174925&_nc_ohc=TeDUpwxAx0AAX95FnOG&_nc_ht=scontent.fdad1-2.fna&oh=a6e6d521f9857328597c3d0063c0ab98&oe=61A4158B"
+            src={
+              user.profilePic ||
+              "https://th.bing.com/th/id/OIP.R9_oIAcacjFSFlwUHNQn6AAAAA?pid=ImgDet&w=400&h=400&rs=1"
+            }
             alt=""
             className="icon"
           />

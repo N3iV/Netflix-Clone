@@ -38,7 +38,9 @@ export default function WidgetSm() {
             />
             <div className="widgetSmUser">
               <span className="widgetSmUsername">{user.username}</span>
-              <span className="widgetSmUserTitle">Software Engineer</span>
+              <span className="widgetSmUserTitle">
+                {user.isAdmin ? "Admin" : " User"}
+              </span>
             </div>
             <button className="widgetSmButton">
               <Visibility className="widgetSmIcon" />

@@ -12,6 +12,8 @@ import {
   Report,
   PlayCircleOutline,
   List,
+  MovieCreation,
+  PlaylistAdd,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -59,27 +61,23 @@ export default function Sidebar() {
                 Lists
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">Create</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
-            </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
-            </li>
+            <Link to="/newproduct" className="link">
+              <li className="sidebarListItem">
+                <MovieCreation className="sidebarIcon" />
+                Movies
+              </li>
+            </Link>
+            <Link to="newList" className="link">
+              <li className="sidebarListItem">
+                <PlaylistAdd className="sidebarIcon" />
+                Feedback
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
