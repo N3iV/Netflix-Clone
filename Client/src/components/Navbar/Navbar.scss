@@ -1,5 +1,6 @@
 .navbar {
   position: fixed;
+  padding: 10px 0;
   width: 100%;
   color: #fff;
   font-size: 14px;
@@ -52,7 +53,7 @@
         .options {
           position: absolute;
           top: 40px;
-          left: 0;
+          right: 0;
           border-radius: 4px;
           display: flex;
           flex-direction: column;
@@ -60,8 +61,8 @@
           background: var(--main-color);
 
           span {
-            display: inline-block;
             cursor: pointer;
+            display: inline-block;
             font-size: 16px;
             padding: 10px 20px;
           }

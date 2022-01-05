@@ -1,6 +1,7 @@
 import { Info, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
@@ -54,10 +55,12 @@ const Featured = ({ type, setGenre }) => {
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayArrow />
-            <span>Play</span>
-          </button>
+          <Link to="/watch" state={{ movie: content }}>
+            <button className="play">
+              <PlayArrow />
+              <span>Play</span>
+            </button>
+          </Link>
           <button className="more">
             <Info />
             <span>More info</span>

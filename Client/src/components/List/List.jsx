@@ -13,7 +13,6 @@ const List = ({ list }) => {
   const handleClick = (direction) => {
     setIsMoved(true);
     let distance = listRef.current.getBoundingClientRect().x - 50;
-    console.log(distance);
     if (direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1);
       listRef.current.style.transform = `translateX( ${distance + 230}px)`;
@@ -34,7 +33,7 @@ const List = ({ list }) => {
         />
         <div className="container" ref={listRef}>
           {list.content.map((item, idx) => (
-            <ListItem item={item} key={idx} />
+            <ListItem item={item} index={idx} key={idx} />
           ))}
         </div>
         <ArrowForwardIosOutlined

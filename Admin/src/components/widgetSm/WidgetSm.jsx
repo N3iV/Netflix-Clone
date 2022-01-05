@@ -5,13 +5,13 @@ import axios from "axios";
 
 export default function WidgetSm() {
   const [newUser, setNewUser] = useState([]);
+  const admin = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     const getNewUser = async () => {
       try {
         const res = await axios.get("/users", {
           headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYmRiMzM1N2FiZTc2YjhlNGFmYjYyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MTE3NjEwMCwiZXhwIjoxNjQxNjA4MTAwfQ.RWt0XGICEDQrFvTZ3M7WImwn23uBUFqOqMmK-KCFxzA",
+            token: "Bearer " + admin.accessToken,
           },
         });
         console.log(res.data);
@@ -26,7 +26,7 @@ export default function WidgetSm() {
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
-        {newUser.map((user, idx) => (
+        {newUser.slice(0, 5).map((user, idx) => (
           <li key={idx} className="widgetSmListItem">
             <img
               src={

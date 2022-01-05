@@ -75,7 +75,7 @@ export default function Sidebar() {
             <Link to="newList" className="link">
               <li className="sidebarListItem">
                 <PlaylistAdd className="sidebarIcon" />
-                Feedback
+                Lists
               </li>
             </Link>
           </ul>

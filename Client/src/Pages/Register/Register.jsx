@@ -49,7 +49,7 @@ export default function Register() {
         </p>
         {!email ? (
           <div className="input">
-            <input type="email" placeholder="email address" ref={emailRef} />
+            <input type="email" placeholder="Email address" ref={emailRef} />
             <button className="registerButton" onClick={handleStart}>
               Get Started
             </button>
@@ -58,14 +58,16 @@ export default function Register() {
           <form className="input">
             <input
               type="username"
-              placeholder="username"
+              placeholder="User Name"
               onChange={(e) => setUsername(e.target.value)}
             />
+
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>
